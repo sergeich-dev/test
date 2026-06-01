@@ -1,40 +1,42 @@
 import Link from "next/link";
+import { getDictionary } from "@/i18n";
 
 export default function SignUpPage() {
+  const dict = getDictionary();
+
   return (
     <main className="auth-shell">
       <div className="auth-card">
-        <p className="eyebrow">Get started</p>
-        <h1>Create your Creator Lab account</h1>
-        <p className="auth-text">Registration UI placeholder for the next implementation step.</p>
+        <p className="eyebrow">{dict.auth.signUp.eyebrow}</p>
+        <h1>{dict.auth.signUp.title}</h1>
+        <p className="auth-text">{dict.auth.signUp.description}</p>
 
         <form className="auth-form">
           <label className="field">
-            <span>Name</span>
-            <input type="text" placeholder="Your name" disabled />
+            <span>{dict.auth.signUp.name}</span>
+            <input type="text" placeholder={dict.auth.signUp.name} disabled />
           </label>
           <label className="field">
-            <span>Email</span>
+            <span>{dict.auth.signUp.email}</span>
             <input type="email" placeholder="you@example.com" disabled />
           </label>
           <label className="field">
-            <span>Password</span>
-            <input type="password" placeholder="Create a password" disabled />
+            <span>{dict.auth.signUp.password}</span>
+            <input type="password" placeholder={dict.auth.signUp.password} disabled />
           </label>
 
           <button className="button button-primary" type="button" disabled>
-            Sign Up
+            {dict.auth.signUp.submit}
           </button>
         </form>
 
         <p className="auth-link-row">
-          Already have an account? <Link href="/sign-in">Sign in</Link>
+          {dict.auth.signUp.alternate} <Link href="/sign-in">{dict.auth.signUp.alternateLink}</Link>
         </p>
         <p className="auth-link-row">
-          <Link href="/">Back to welcome page</Link>
+          <Link href="/">{dict.common.backToWelcome}</Link>
         </p>
       </div>
     </main>
   );
 }
-
