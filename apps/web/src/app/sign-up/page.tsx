@@ -1,11 +1,15 @@
+"use client";
+
 import Link from "next/link";
-import { getDictionary } from "@/i18n";
+import { AppHeader } from "@/components/app-header";
+import { useLocale } from "@/components/locale-provider";
 
 export default function SignUpPage() {
-  const dict = getDictionary();
+  const { dict } = useLocale();
 
   return (
     <main className="auth-shell">
+      <AppHeader currentPage="sign-up" />
       <div className="auth-card">
         <p className="eyebrow">{dict.auth.signUp.eyebrow}</p>
         <h1>{dict.auth.signUp.title}</h1>

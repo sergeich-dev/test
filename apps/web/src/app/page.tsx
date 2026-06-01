@@ -1,18 +1,21 @@
+"use client";
+
 import Link from "next/link";
-import { getDictionary } from "@/i18n";
+import { AppHeader } from "@/components/app-header";
+import { useLocale } from "@/components/locale-provider";
 
 export default function HomePage() {
-  const dict = getDictionary();
+  const { dict } = useLocale();
 
   return (
     <main className="page-shell">
+      <AppHeader currentPage="welcome" />
+
       <section className="hero-section">
         <div className="hero-copy">
           <p className="eyebrow">{dict.welcome.eyebrow}</p>
           <h1>{dict.welcome.title}</h1>
-          <p className="hero-text">
-            {dict.welcome.description}
-          </p>
+          <p className="hero-text">{dict.welcome.description}</p>
 
           <div className="hero-actions">
             <Link className="button button-primary" href="/sign-up">
@@ -66,14 +69,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="content-section">
+      <section className="content-section" id="overview">
         <div className="section-heading">
-          <p className="eyebrow">Зачем это нужно</p>
+          <p className="eyebrow">{dict.welcome.whyEyebrow}</p>
           <h2>{dict.welcome.whyTitle}</h2>
           <p>{dict.welcome.whyDescription}</p>
         </div>
 
-        <div className="feature-grid">
+        <div className="feature-grid" id="features">
           {dict.welcome.features.map((card) => (
             <article className="feature-card" key={card.title}>
               <h3>{card.title}</h3>
@@ -83,9 +86,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="content-section workflow-section">
+      <section className="content-section workflow-section" id="workflow">
         <div className="section-heading">
-          <p className="eyebrow">Основной путь</p>
+          <p className="eyebrow">{dict.welcome.flowEyebrow}</p>
           <h2>{dict.welcome.flowTitle}</h2>
         </div>
 
