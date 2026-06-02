@@ -1,7 +1,7 @@
 "use client";
 
+import { signOut } from "next-auth/react";
 import { useTransition } from "react";
-import { signOutUser } from "@/auth-actions";
 import { useLocale } from "@/components/locale-provider";
 
 export function SignOutButton() {
@@ -14,7 +14,7 @@ export function SignOutButton() {
       type="button"
       onClick={() => {
         startTransition(async () => {
-          await signOutUser();
+          await signOut({ callbackUrl: "/" });
         });
       }}
       disabled={isPending}
