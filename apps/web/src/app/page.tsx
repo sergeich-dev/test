@@ -17,14 +17,6 @@ export default function HomePage() {
           <h1>{dict.welcome.title}</h1>
           <p className="hero-text">{dict.welcome.description}</p>
 
-          <div className="hero-actions">
-            <Link className="button button-primary" href="/sign-up">
-              {dict.common.signUp}
-            </Link>
-            <Link className="button button-secondary" href="/sign-in">
-              {dict.common.signIn}
-            </Link>
-          </div>
         </div>
 
         <div className="hero-panel">

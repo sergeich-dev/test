@@ -133,6 +133,8 @@ html {
   display: flex;
   gap: 12px;
   justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .site-header-tools {
@@ -236,6 +238,7 @@ html {
   padding: 0 22px;
   border-radius: 999px;
   border: 1px solid transparent;
+  cursor: pointer;
   font-weight: 600;
   transition:
     transform 160ms ease,
@@ -440,6 +443,42 @@ html {
   display: grid;
   gap: 14px;
   margin-top: 24px;
+}
+
+.auth-provider-button {
+  width: 100%;
+  gap: 12px;
+}
+
+.provider-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(255, 248, 241, 0.2);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.auth-helper-text {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.user-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 252, 247, 0.72);
+  color: var(--muted);
+  font-size: 0.94rem;
+  font-weight: 600;
 }
 
 .field {

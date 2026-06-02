@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
+import { AuthSessionProvider } from "@/components/auth-session-provider";
 import { LocaleProvider } from "@/components/locale-provider";
 import { defaultLocale } from "@/i18n";
 
@@ -28,7 +29,9 @@ export default function RootLayout({
   return (
     <html lang={defaultLocale} suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
-        <LocaleProvider>{children}</LocaleProvider>
+        <AuthSessionProvider>
+          <LocaleProvider>{children}</LocaleProvider>
+        </AuthSessionProvider>
       </body>
     </html>
   );

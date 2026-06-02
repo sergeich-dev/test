@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { AppHeader } from "@/components/app-header";
+import { AuthButton } from "@/components/auth-button";
 import { useLocale } from "@/components/locale-provider";
 
 export default function SignUpPage() {
@@ -15,24 +16,10 @@ export default function SignUpPage() {
         <h1>{dict.auth.signUp.title}</h1>
         <p className="auth-text">{dict.auth.signUp.description}</p>
 
-        <form className="auth-form">
-          <label className="field">
-            <span>{dict.auth.signUp.name}</span>
-            <input type="text" placeholder={dict.auth.signUp.name} disabled />
-          </label>
-          <label className="field">
-            <span>{dict.auth.signUp.email}</span>
-            <input type="email" placeholder="you@example.com" disabled />
-          </label>
-          <label className="field">
-            <span>{dict.auth.signUp.password}</span>
-            <input type="password" placeholder={dict.auth.signUp.password} disabled />
-          </label>
-
-          <button className="button button-primary" type="button" disabled>
-            {dict.auth.signUp.submit}
-          </button>
-        </form>
+        <div className="auth-form">
+          <AuthButton mode="sign-up" />
+          <p className="auth-helper-text">{dict.auth.signUp.helper}</p>
+        </div>
 
         <p className="auth-link-row">
           {dict.auth.signUp.alternate} <Link href="/sign-in">{dict.auth.signUp.alternateLink}</Link>
